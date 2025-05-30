@@ -590,7 +590,8 @@ font-size: 50%;
 
         <section class="contact" id="contact">
             <h2 class="heading">Contact <span>Me!</span></h2>
-            <form method="post" name="google-sheet">
+            <form action="https://formsubmit.co/murtazadawoodjee.connect@gmail.com" method="POST">
+               <input type="hidden" name="_captcha" value="false">
                 <div class="input-box">
                     <input type="text" name="Name" placeholder="Full Name">
                     <input type="email" name="Email" placeholder="Email Address">
@@ -601,6 +602,7 @@ font-size: 50%;
                 </div>
                 <textarea name="Message" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
                 <input type="submit" value="Send Message" class="btn">
+                <p id="success-message" style="display:none; color: green; font-weight: bold; margin-top: 10px;"></p>
             </form>
         </section>
         <footer class="footer">
@@ -679,15 +681,34 @@ font-size: 50%;
             loop: true
         });
 
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbybwyIcLdfaECz8LWUjVcScHBB0MhA0s5m4hzWkSoBSvQBFVMXDDvJDXaur1Ad7bDVQ1g/exec'
-            const form = document.forms['google-sheet']
-          
-            form.addEventListener('submit', e => {
-              e.preventDefault()
-              fetch(scriptURL, { method:'post', body: new FormData(form)})
-                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
-                .catch(error => console.error('Error!', error.message))
-            })
+        const form = document.getElementById("contact-form");
+    const successMessage = document.getElementById("success-message");
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        fetch("https://formsubmit.co/murtazadawoodjee.connect@gmail.com", {
+            method: "POST",
+            body: new FormData(form),
+        })
+        .then(response => {
+            if (response.ok) {
+                successMessage.textContent = "✅ Message sent successfully!";
+                successMessage.style.display = "block";
+                form.reset();
+            } else {
+                successMessage.textContent = "❌ There was an error. Please try again.";
+                successMessage.style.color = "red";
+                successMessage.style.display = "block";
+            }
+        })
+        .catch(error => {
+            successMessage.textContent = "❌ Error sending message.";
+            successMessage.style.color = "red";
+            successMessage.style.display = "block";
+            console.error("Error!", error.message);
+        });
+    });
        </script>
     <script src="js/script.js"></script>
   </body>
