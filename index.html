@@ -271,6 +271,77 @@ span {
     margin-top: 2rem;
     cursor: pointer;
 }
+
+.projects {
+  padding: 10rem 9% 2rem;
+  background: var(--bg-color);
+}
+
+.projects .heading {
+  text-align: center;
+  font-size: 4rem;
+  margin-bottom: 4rem;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
+.project-card {
+  background: var(--second-bg-color);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-content {
+  padding: 2rem;
+  flex-grow: 1;
+}
+
+.project-card h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--main-color);
+}
+
+.project-card p {
+  font-size: 1.4rem;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+.project-card .btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--main-color);
+  color: #fff;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.project-card .btn:hover {
+  background: #ff4c4c;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(255, 94, 0, 0.4);
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -416,7 +487,7 @@ font-size: 50%;
             <nav class="navbar">
                 <a href="#home" class='active'>Home</a>
                 <a href="#about">About</a>
-                <a href="#awards">Awards</a>
+                <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a> 
              </nav>
         </header>
@@ -482,14 +553,39 @@ font-size: 50%;
             </div>
         </section>
 
-        <section class="awards" id="awards">
-            <h2 class="heading">Awards <span>Achieved</span></h2>
-            <div class="awards-container">
-                <div class="awards-box">
-                    <h1> Uploading Soon...</h3>
-                </div>
-            </div>
-        </section>
+       <section class="projects" id="projects">
+  <h2 class="heading">My <span>Projects</span></h2>
+  <div class="project-container">
+    <div class="project-card">
+      <img src="project1.jpg" alt="Project 1">
+      <div class="project-content">
+        <h3>Project One</h3>
+        <p>A short summary of the project, technologies used, and any key features.</p>
+        <a href="https://github.com/yourname/project1" class="btn" target="_blank">View Code</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="project2.jpg" alt="Project 2">
+      <div class="project-content">
+        <h3>Project Two</h3>
+        <p>Brief description of the project with key functionality or stack.</p>
+        <a href="https://github.com/yourname/project2" class="btn" target="_blank">View Code</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="project3.jpg" alt="Project 3">
+      <div class="project-content">
+        <h3>Project Three</h3>
+        <p>Highlight unique aspects or the purpose of the project here.</p>
+        <a href="https://github.com/yourname/project3" class="btn" target="_blank">View Code</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
         <section class="contact" id="contact">
             <h2 class="heading">Contact <span>Me!</span></h2>
             <form method="post" name="google-sheet">
