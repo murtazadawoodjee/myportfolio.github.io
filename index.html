@@ -222,6 +222,68 @@ span {
 .tab-contents.active-tab {
   display: block;
 }
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-card {
+  flex: 1 1 30%;
+  background: #fff;
+  border-left: 5px solid #ff914d;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+
+.timeline {
+  position: relative;
+  margin: 2rem 0;
+  padding-left: 2rem;
+  border-left: 3px solid #ff914d;
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  background-color: #ff914d;
+  border-radius: 50%;
+}
+
+.timeline-content {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .awards {
   background: var(--bg-color);
 }
@@ -528,31 +590,90 @@ font-size: 50%;
                     <p class="tab-links" onclick="opentab('experience')">Experience</p>
                     <p class="tab-links" onclick="opentab('education')">Education</p>
                 </div>
-                <div class="tab-contents active-tab" id="skills">
-                    <ul>
-                        <li><span>Graphics</span><br>Graphic Designing</li>
-                        <li><span>Web Development</span><br>Frontend Development</li>
-                        <li><span>Other Languages</span><br>C/C++<br>Python<br>PHP<br>Reactjs<br>Java<br>SQL</li>
-                    </ul>
-                </div>
-                <div class="tab-contents" id="experience">
-                    <ul>
-                        <li><span>2022-Present</span><br>Co-Founder of MSquare Graphix</li>
-                        <li><span>2021-Present</span><br>IT person of B.G.R</li>
-                        <li><span>2022-Present</span><br>IT Intern at Anjuman e Kalimi </li>
-                        <li><span>2023-2023</span><br>Graphics Executive at MUACM</li>
-                        <li><span>2023-2024</span><br>Graphics Co-Head at MUACM</li>
-                      </ul>
-                </div>
-                <div class="tab-contents" id="education">
-                    <ul>
-                        <li><span>2022-2025</span><br>BCA at Medicaps-University Indore</li>
-                        <li><span>2016-2021</span><br>St. Joseph's Convent Ratlam M.P</li>
-                        <li><span>2015-2016</span><br>St. John XXIII Virar(w)</li>
-                        <li><span>2009-2015</span><br>St. Joseph's Convent Ratlam M.P</li>
-                    </ul>
-                </div>
-            </div>
+                <!-- Skills Grid -->
+<div class="tab-contents active-tab" id="skills">
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h4>Graphics</h4>
+      <p>Graphic Designing (Photoshop, Figma, Canva)</p>
+    </div>
+    <div class="skill-card">
+      <h4>Web Development</h4>
+      <p>HTML, CSS, JavaScript, ReactJS</p>
+    </div>
+    <div class="skill-card">
+      <h4>Programming</h4>
+      <p>C/C++, Python, Java, PHP, SQL</p>
+    </div>
+  </div>
+</div>
+
+<!-- Timeline for Experience -->
+<div class="tab-contents" id="experience">
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h4>2022 - Present</h4>
+        <p>Co-Founder of MSquare Graphix</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h4>2021 - Present</h4>
+        <p>IT person of B.G.R</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h4>2022 - Present</h4>
+        <p>IT Intern at Anjuman e Kalimi</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h4>2023</h4>
+        <p>Graphics Executive at MUACM</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h4>2023 - 2024</h4>
+        <p>Graphics Co-Head at MUACM</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Timeline for Education -->
+<div class="tab-contents" id="education">
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h4>2022 - 2025</h4>
+        <p>BCA at Medicaps-University Indore</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h4>2016 - 2021</h4>
+        <p>St. Joseph's Convent Ratlam M.P</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h4>2015 - 2016</h4>
+        <p>St. John XXIII Virar (W)</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h4>2009 - 2015</h4>
+        <p>St. Joseph's Convent Ratlam M.P</p>
+      </div>
+    </div>
+  </div>
+</div>
+
         </section>
 
        <section class="projects" id="projects">
