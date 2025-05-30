@@ -222,68 +222,6 @@ span {
 .tab-contents.active-tab {
   display: block;
 }
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.skill-card {
-  flex: 1 1 30%;
-  background: #fff;
-  border-left: 5px solid #ff914d;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-
-.skill-card:hover {
-  transform: translateY(-5px);
-}
-
-.timeline {
-  position: relative;
-  margin: 2rem 0;
-  padding-left: 2rem;
-  border-left: 3px solid #ff914d;
-}
-
-.timeline-item {
-  margin-bottom: 2rem;
-  position: relative;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -10px;
-  top: 0;
-  width: 15px;
-  height: 15px;
-  background-color: #ff914d;
-  border-radius: 50%;
-}
-
-.timeline-content {
-  background: #f9f9f9;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-  animation: slideIn 0.5s ease-in-out;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 .awards {
   background: var(--bg-color);
 }
@@ -534,9 +472,77 @@ font-size: 50%;
    text-align: center;
    margin-top: 2rem; 
   }
+}/* Skill Cards */
+.skills-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
 }
+.skill-card {
+  flex: 1 1 30%;
+  background:#323946;
+;
+  border-left: 4px solid #00e1ff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+.skill-card h4 {
+  margin-bottom: 0.6rem;
+  font-size: 2.5rem;
+  color: #00ffe1;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.skill-card p {
+  font-size: 2rem;
+  line-height: 1.6;
+  color: #eaeaea;
+  margin: 0;
+}
+
+/* Timeline Styling */
+.timeline {
+  position: relative;
+  margin: 2rem 0;
+  padding-left: 2rem;
+  border-left: 3px solid #00e1ff;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+.timeline-content {
+  background: #323946;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
     </style>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
@@ -563,7 +569,7 @@ font-size: 50%;
                 Welcome to My Portfolio Website
                 </p>
                 <div class="social-media">
-                    <a href="https://twitter.com/MurtazaDawoodj1?t=k3RTO5Hi7boZEH5lWhBGuQ&s=08"><i class='bx bxl-twitter' ></i></a>
+                    <a href="https://twitter.com/MurtazaDawoodj1?t=k3RTO5Hi7boZEH5lWhBGuQ&s=08" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
                     <a href="https://instagram.com/murtz.0712?igshid=MzNlNGNkZWQ4Mg=="><i class='bx bxl-instagram-alt' ></i></a>
                     <a href="https://www.linkedin.com/in/murtaza-dawoodji-b47261237"><i class='bx bxl-linkedin' ></i></a>
                     <a href="https://github.com/murtazadawoodjee"><i class='bx bxl-github'></i></a>
@@ -582,24 +588,29 @@ font-size: 50%;
             
             <div class="about-content">
                 <h2 class="heading">About <span>Me</span></h2>
-                <h3>Frontend Developer</h3>
-                <p>I am a Frontend Developer and a very creative Graphic Designer I have experience in Canva Figma And Adobe Photoshop. I am also skilled in languages like HTML , CSS , Javascript, C/C++ , Python etc. I also have a startup company named Msquare Graphix For Graphic Designing purposes.</p>
+                <!-- <h3>Murtaza Dawoodjeewala</h3> -->
+                <p>I'm a passionate Frontend Developer and creative Graphic Designer skilled in Canva, Figma, and Adobe Photoshop.
+                   I build intuitive, visually appealing interfaces using HTML, CSS, JavaScript, and React, 
+                  backed by strong programming knowledge in C/C++, Python, and PHP. As founder of Msquare Graphix,
+                  I combine design and tech to deliver innovative, engaging digital experiences.</p>
                 <!-- <a href="#" class="btn">Read More</a> -->
-                <div class="tab-titles">
-                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                    <p class="tab-links" onclick="opentab('education')">Education</p>
-                </div>
-                <!-- Skills Grid -->
+               <!-- Tab Links -->
+<div class="tab-titles">
+  <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+  <p class="tab-links" onclick="opentab('experience')">Experience</p>
+  <p class="tab-links" onclick="opentab('education')">Education</p>
+</div>
+
+<!-- Skills Section -->
 <div class="tab-contents active-tab" id="skills">
   <div class="skills-grid">
     <div class="skill-card">
       <h4>Graphics</h4>
-      <p>Graphic Designing (Photoshop, Figma, Canva)</p>
+      <p>Photoshop, Canva, Figma</p>
     </div>
     <div class="skill-card">
       <h4>Web Development</h4>
-      <p>HTML, CSS, JavaScript, ReactJS</p>
+      <p>HTML, CSS, JS, ReactJS</p>
     </div>
     <div class="skill-card">
       <h4>Programming</h4>
@@ -608,7 +619,7 @@ font-size: 50%;
   </div>
 </div>
 
-<!-- Timeline for Experience -->
+<!-- Experience Section -->
 <div class="tab-contents" id="experience">
   <div class="timeline">
     <div class="timeline-item">
@@ -644,7 +655,7 @@ font-size: 50%;
   </div>
 </div>
 
-<!-- Timeline for Education -->
+<!-- Education Section -->
 <div class="tab-contents" id="education">
   <div class="timeline">
     <div class="timeline-item">
@@ -674,6 +685,7 @@ font-size: 50%;
   </div>
 </div>
 
+            </div>
         </section>
 
        <section class="projects" id="projects">
